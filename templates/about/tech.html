@@ -1,0 +1,28 @@
+{% extends "posts/base.html" %}
+{% block title %}Технологии{% endblock %}
+{% block header %}Технологии{% endblock %}
+{% block content %}
+{% load user_filters %}
+  <main role="main" class="container">
+      <div class="row">
+          <!-- Тело страницы -->
+          <div class="col-md-9">
+              <div class="card-body">                    
+                  <div class="card-text">
+                    <h3> Django </h3>
+                    <p>
+                        Для создания сайта использовался фреймворк Django.
+                        Изучались инструменты фреймворка и по большому счету много что могу теперь. Только надо повспоминать...
+                    </p>
+                    <h3>
+                        Python
+                    </h3>
+                    <p>
+                        Куда ж без него. На нем написан весь Back сайта.
+                    </p>
+                  </div>                    
+              </div>                
+          </div>            
+      </div>        
+  </main>
+{% endblock %}
