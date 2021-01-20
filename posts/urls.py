@@ -27,7 +27,7 @@ urlpatterns = [
     path("404/",
          views.page_not_found,
          name="404"),
-    path("<username>/<int:post_id>/comment",
+    path("<str:username>/<int:post_id>/comment/",
          views.add_comment,
          name="add_comment"),
     path("<str:username>/follow/",

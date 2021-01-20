@@ -1,20 +1,20 @@
 <!doctype html>
-{% extends "posts/base.html" %}
+{% extends "base.html" %}
 {% block title %}Последние обновления на сайте{% endblock %}
 {% block header %}Последние обновления на сайте{% endblock %}
 {% block content %}
 
-    {% include "posts/menu.html" with index=True %}
+    {% include "posts/includes/menu.html" with index=True %}
 
     {% load cache %}
     {% cache 20 % sidebar page %}
         {% for post in page %}
-            {% include "posts/post_item.html" with post=post %}
+            {% include "posts/includes/post_item.html" with post=post %}
         {% endfor %}
     {% endcache %}
 
     {% if page.has_other_pages %}
-        {% include "posts/paginator.html" %}
+        {% include "posts/includes/paginator.html" %}
     {% endif %}
 
 {% endblock %}

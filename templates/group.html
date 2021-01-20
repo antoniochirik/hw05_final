@@ -1,4 +1,4 @@
-{% extends "posts/base.html" %}
+{% extends "base.html" %}
 {% block title %} Записи сообщества {{ group }}{% endblock %}
 {% block header %} {{ group.title }} {% endblock %}
 
@@ -7,11 +7,11 @@
         {{ group.description|linebreaksbr }}
     </p>
     {% for post in page %}
-        {% include "posts/post_item.html" with post=post %}
+        {% include "posts/includes/post_item.html" with post=post %}
     {% endfor %}
 
     {% if page.has_other_pages %}
-        {% include "posts/paginator.html" %}
+        {% include "posts/includes/paginator.html" %}
     {% endif %}
 
 {% endblock %}

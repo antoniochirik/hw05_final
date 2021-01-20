@@ -1,19 +1,19 @@
 <!doctype html>
-{% extends "posts/base.html" %}
+{% extends "base.html" %}
 {% block title %}Последние обновления в подписках{% endblock %}
 {% block header %}Последние обновления в подписках{% endblock %}
 {% block content %}
 
-    {% include "posts/menu.html" with follow=True %}
+    {% include "posts/includes/menu.html" with follow=True %}
     {% load cache %}
     {% cache 20 index_page post.id page %}
         {% for post in page %}
-            {% include "posts/post_item.html" with post=post %}
+            {% include "posts/includes/post_item.html" with post=post %}
         {% endfor %}
     {% endcache %}
 
     {% if page.has_other_pages %}
-        {% include "posts/paginator.html" %}
+        {% include "posts/includes/paginator.html" %}
     {% endif %}
 
 {% endblock %}

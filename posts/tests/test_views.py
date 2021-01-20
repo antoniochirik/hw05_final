@@ -51,7 +51,6 @@ class PostsPagesTests(TestCase):
         self.authorized_client.get(PROFILE_FOLLOW_URL)
         self.assertTrue(Follow.objects.get(user=self.user_follow,
                                            author=self.user))
-        #self.assertEqual(self.user_follow, Follow.objects.first().user)
 
     def test_unfollow_for_authorized(self):
         """ Отписка доступна для подписчика """
@@ -131,8 +130,7 @@ class PostsPagesTests(TestCase):
         form_data = {"text": "test comment"}
         response = self.authorized_client.post(
             self.ADD_COMMENT_URL, data=form_data, follow=True)
-        comment = Comment.objects.first()
-        # потому что он единственный в базе
+        comment = Comment.objects.last()
         self.assertRedirects(response, self.POST_URL)
         self.assertEqual(self.post.comments.count(), 1)
         self.assertEqual(comment.post, self.post)

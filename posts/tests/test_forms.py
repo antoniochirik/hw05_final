@@ -83,6 +83,8 @@ class PostFormTests(TestCase):
         self.assertEqual(created_post.text, form_data["text"])
         self.assertRedirects(response, INDEX_URL)
         self.assertEqual(Post.objects.count(), tasks_count + 1)
+        self.assertEqual(created_post.image.file.read(),
+                         form_data['image'].file.getvalue())
 
     def test_edit_post(self):
         """ Пост обновляется в базе """
